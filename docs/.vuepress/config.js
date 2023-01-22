@@ -18,20 +18,6 @@ module.exports = {
         ]
       },
       {
-        title: 'TypeScript 常用语法',
-        collapsable: false,
-        children: [
-          'chapter2/type',
-          'chapter2/declare',
-          'chapter2/interface',
-          'chapter2/class',
-          'chapter2/function',
-          'chapter2/generic',
-          'chapter2/inference',
-          'chapter2/advance'
-        ]
-      },
-      {
         'title': 'ts-axios 项目初始化',
         collapsable: false,
         children: [
