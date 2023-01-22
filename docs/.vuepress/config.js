@@ -107,6 +107,13 @@ module.exports = {
           'chapter11/cancel',
           'chapter11/more'
         ]
+      },
+      {
+        'title': '工具函数',
+        collapsable: false,
+        children: [
+          'utils/utils',
+        ]
       }
     ]
   }
