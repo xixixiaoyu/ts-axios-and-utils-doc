@@ -1,4 +1,6 @@
-# 下载使用工具包
+## 使用自定义工具包
+
+### 1.下载工具包
 
 ```js
 npm i yun-utils
@@ -6,7 +8,7 @@ npm i yun-utils
 
 
 
-## 网页中引入并使用
+### 2.网页中引入并使用
 
 ```html
 <script src="./node_modules/yun-utils/dist/utils.js"></script>
@@ -18,7 +20,7 @@ npm i yun-utils
 
 
 
-## 模块化引入并使用
+### 3.模块化引入并使用
 
 ```js
 // 使用ESM引入
@@ -32,11 +34,11 @@ console.log(reverseString("yunmu"));
 
 
 
-# 函数相关
+## 函数相关
 
 
 
-## call()
+### call()
 
 - 语法: call(fn, obj, ...args)
 - 功能: 执行fn, 使this为obj, 并将后面的n个参数传给fn
@@ -77,7 +79,7 @@ console.log(call(add, obj, 30, 40)); // 指向obj 结果90
 
 
 
-## apply()
+### apply()
 
 - 语法: apply(fn, obj, args)
 - 功能: 执行fn, 使this为obj, 并将args数组中的元素传给fn
@@ -117,7 +119,7 @@ console.log(apply(add, obj, [30, 40]));  // 指向obj 结果90
 
 
 
-## bind()
+### bind()
 
 - 语法: bind(fn, obj, ...args)
 - 功能: 返回一个新函数，该函数给fn绑定this为obj, 并指定参数为后面的n个参数
@@ -156,14 +158,14 @@ console.log(fn3(60)); // 110
 
 
 
-## 函数防抖节流
+### 函数防抖节流
 
 - 高频事件触发会导致页面卡顿，如果发送请求，则会造成服务端不必要的压力
 - 通过防抖和节流可以限制频繁的出发
 
 
 
-### 防抖
+#### 防抖
 
 > 在事件被触发n秒后再执行函数，如果在这n秒内又被触发，则重新计时
 >
@@ -203,7 +205,7 @@ input.addEventListener("input", debounceTask);
 
 
 
-### 节流
+#### 节流
 
 > 每隔一段时间，只执行一次函数
 >
@@ -240,7 +242,7 @@ window.addEventListener("scroll", throttleTask);
 
 
 
-## once
+### once
 
 ```js
 function once(fn) {
@@ -267,7 +269,7 @@ pay(5);
 
 
 
-## 函数柯里化
+### 函数柯里化
 
 - 当一个函数有多个参数的时候先传递一部分参数调用它
 - 然后返回一个新的函数接收剩余的参数，返回结果
@@ -299,11 +301,11 @@ console.log(curried(1, 2, 3)); // 6
 
 
 
-# 数组相关
+## 数组相关
 
 
 
-## forEach
+### forEach
 
 - 遍历对应数组每个元素
 
@@ -317,7 +319,7 @@ export function forEach(arr, callback) {
 
 
 
-## map
+### map
 
 - 返回一个由回调函数的返回值组成的新数组
 
@@ -348,7 +350,7 @@ console.log(newArr); // [20, 30, 40, 50]
 
 
 
-## reduce
+### reduce
 
 - 从左到右为数组每个元素执行一次回调函数
 - 并把上次回调函数的返回值放在一个暂存器中当作参数传给下次回调函数
@@ -383,7 +385,7 @@ console.log(result); // 20
 
 
 
-## filter
+### filter
 
 - 将所有在过滤函数中返回 `true` 的数组元素放进一个新数组中并返回
 
@@ -416,7 +418,7 @@ console.log(newArr); // [2, 4]
 
 
 
-## find
+### find
 
 - 找到第一个满足测试函数的元素并返回那个元素的值
 - 如果找不到，则返回 `undefined`
@@ -449,7 +451,7 @@ console.log(result); // 1024
 
 
 
-## findIndex
+### findIndex
 
 - 找到第一个满足测试函数的元素并返回那个元素的索引
 - 如果找不到，则返回 `-1`
@@ -482,7 +484,7 @@ console.log(result); 5
 
 
 
-## every
+### every
 
 - 如果数组中的每个元素都满足测试函数，则返回 true，否则返回 false
 
@@ -509,7 +511,7 @@ console.log(result1); // true
 
 
 
-## some
+### some
 
 -  如果数组中至少有一个元素满足测试函数，则返回 true，否则返回 false
 
@@ -537,11 +539,11 @@ console.log(result2); // true
 
 
 
-## 数组去重
+### 数组去重
 
 
 
-### 方式一
+#### 方式一
 
 - 利用ES6语法: ... + Set 或者 Array.from() + Set
 - 简洁
@@ -561,7 +563,7 @@ console.log(newArr); // [1, 2, 3, 4, 5]
 
 
 
-### 方式二
+#### 方式二
 
 - 利用forEach()和indexOf()或者includes()
 - 本质是双重遍历, 效率差些
@@ -585,7 +587,7 @@ function unique2(arr) {
 
 
 
-### 方式三
+#### 方式三
 
 - 利用forEach() + 对象容器
 - 只需一重遍历, 效率高些
@@ -612,7 +614,7 @@ function unique3(arr) {
 
 
 
-## 数组合并
+### 数组合并
 
 - 将n个数组或值与当前数组合并生成一个新数组, 原始数组不会被改变
 
@@ -676,7 +678,7 @@ console.log(newArr); // [1, 2, 3, 4]
 
 
 
-## 数组扁平化
+### 数组扁平化
 
 - 取出嵌套数组(多维)中的所有元素放到一个新数组(一维)中
 - 如: [1, [3, [2, 4]]] ==> [1, 3, 2, 4]
@@ -730,7 +732,7 @@ function flat2(arr) {
 
 
 
-## 数组分块
+### 数组分块
 
 - 语法: chunk(array, size)
 - 功能: 将数组拆分成多个 size 长度的区块，每个区块组成小数组，整体组成一个二维数组
@@ -768,7 +770,7 @@ console.log(newArr); // [[1, 2, 3], [4, 5, 6], [7]]
 
 
 
-## 数组取差异
+### 数组取差异
 
 - 语法: difference(arr1, arr2)
 - 功能: 得到arr1中不在arr2的元素组成的数组(不改变原数组)
@@ -787,18 +789,18 @@ console.log(newArr); // [1, 2]
 
 
 
-## 删除数组某些元素
+### 删除数组某些元素
 
 
 
-### pull(array, ...values)
+#### pull(array, ...values)
 
 - 删除原数组中与value相同的元素, 返回所有删除元素的数组，改变原数组
 - 如: pull([1,3,5,3,7], 2, 7, 3, 7) ===> 原数组变为[1, 5], 返回值为[3,3,7]
 
 
 
-### pullAll(array, values):
+#### pullAll(array, values):
 
 - 功能与pull一致, 只是参数变为数组
 - 如: pullAll([1, 3, 5, 3, 7], [2, 7, 3, 7]) ===> 数组变为[1, 5], 返回值为[3, 3, 7]
@@ -846,11 +848,11 @@ console.log(newArr2); // [3, 4, 5]
 
 
 
-## 得到数组的部分元素
+### 得到数组的部分元素
 
 
 
-### drop(array, count)
+#### drop(array, count)
 
 - 得到当前数组过滤掉左边count个后剩余元素组成的数组
 - 说明: 不改变当前数组, count默认是1
@@ -858,7 +860,7 @@ console.log(newArr2); // [3, 4, 5]
 
 
 
-### dropRight(array, count)
+#### dropRight(array, count)
 
 - 得到当前数组过滤掉右边count个后剩余元素组成的数组
 - 说明: 不改变当前数组, count默认是1
@@ -885,11 +887,11 @@ console.log(newArr2); // [1, 2]
 
 
 
-# 对象相关
+## 对象相关
 
 
 
-## 创建对象
+### 创建对象
 
 - Object.create()兼容性写法 函数的功能是以obj为原型创建新对象
 
@@ -906,7 +908,7 @@ function ceateobject(obj) {
 
 
 
-## 自定义new
+### 自定义new
 
 - 语法: newInstance(Fn, ...args)
 - 功能: 创建Fn构造函数的实例对象
@@ -935,7 +937,7 @@ yun.sayHello(); // Hi
 
 
 
-## 自定义instanceof
+### 自定义instanceof
 
 - 语法: myInstanceOf(obj, Type)
 - 功能: 判断obj是否是Type类型的实例
@@ -982,7 +984,7 @@ console.log(myInstanceof(Object, Function)); // true
 
 
 
-## 合并多个对象
+### 合并多个对象
 
 - 语法: object mergeObject(...objs)
 - 功能: 合并多个对象, 返回一个合并后对象(不改变原对象)
@@ -1023,7 +1025,7 @@ console.log(mergeObject(obj1, obj2)); // {a: [{x: 2}, {y: 4}, {z: 3}], b: [1, 2,
 
 
 
-## 浅拷贝
+### 浅拷贝
 
 - 只是拷贝对象本身引用地址值，修改原数据，新的数据会跟随改变
 
@@ -1052,13 +1054,13 @@ console.log(cloneObj);
 
 
 
-## 深拷贝
+### 深拷贝
 
 - 完全拷贝一份新的，在堆内存开启新空间，新旧数据互不影响
 
 
 
-### 乞丐版
+#### 乞丐版
 
 ```js
 function deepClone1(target) {
@@ -1082,7 +1084,7 @@ console.log(cloneObj);
 
 
 
-### 升华版
+#### 升华版
 
 ```js
 function deepClone2(target, map = new Map()) {
@@ -1116,7 +1118,7 @@ function deepClone2(target, map = new Map()) {
 
 
 
-### 面试加强版
+#### 面试吹逼版
 
 - 优化遍历
 
@@ -1153,11 +1155,11 @@ function deepClone3(target, map = new Map()) {
 
 
 
-# 字符串相关
+## 字符串相关
 
 
 
-## 字符串倒序
+### 字符串倒序
 
 - 语法: reverseString(str)
 - 功能: 生成一个倒序的字符串
@@ -1176,7 +1178,7 @@ console.log(reverseString("hello yunmu 2022年不要孤单了"));
 
 
 
-## 字符串是否是回文
+### 字符串是否是回文
 
 - 语法: palindrome(str)
 - 功能: 如果给定的字符串是回文(正序倒序都一样)，则返回 true ；否则返回 false
@@ -1194,7 +1196,7 @@ function palindrome(string) {
 
 
 
-## 截取字符串
+### 截取字符串
 
 - 语法: truncate(str, num)
 - 功能: 如果字符串的长度超过了num, 截取前面num长度部分, 并以...结束
@@ -1210,7 +1212,7 @@ function truncate(string, size) {
 
 
 
-## 判断字符串出现最多的字符
+### 判断字符串出现最多的字符
 
 ```js
 function isMaxStr(string) {
@@ -1244,11 +1246,11 @@ console.log(isMaxStr(str));
 
 
 
-# DOM相关
+## DOM相关
 
 
 
-## 手写DOM事件监听(带委托)
+### 手写DOM事件监听(带委托)
 
 - 语法：addEventListener(element, type, fn, selector)
 - 说明：如果selector没有，直接给element绑定事件，如果selector有，将selector对应的多个元素的事件委托绑定给父元素element
@@ -1300,7 +1302,7 @@ addEventListener(
 
 
 
-## 封装DOM操作
+### 封装DOM操作
 
 - DOM操作本身有很多API，有的要不太长，还有的缺失，比如返回自身所有兄弟元素，清空内部元素等
 
@@ -1495,7 +1497,7 @@ window.dom = {
 
 
 
-## 可拖拽div
+### 可拖拽div
 
 ```js
 let dragging = false;
@@ -1530,7 +1532,7 @@ document.addEventListener("mouseup", function (e) {
 
 
 
-## 简易JQuery
+### 简易JQuery
 
 ![image-20220307121457300](https://gitee.com/z1725163126/cloundImg/raw/master/image-20220307121457300.png)
 
@@ -1540,7 +1542,7 @@ document.addEventListener("mouseup", function (e) {
 
 
 
-# 手写Ajax请求函数
+## 手写Ajax请求函数
 
 - 语法：axios(options)
   - 参数配置对象：url, method, params与data
@@ -1651,7 +1653,7 @@ axios
 
 
 
-# 手写事件总线
+## 手写事件总线
 
 - eventBus: 包含所有功能的事件总线对象
 - eventBus.on(eventName, listener): 绑定事件监听
@@ -1724,7 +1726,7 @@ eventBus.off();
 
 
 
-# 手写消息订阅与发布
+## 手写消息订阅与发布
 
 - PubSub: 包含所有功能的订阅/发布消息的管理者
 - PubSub.subscribe(msg, subscriber): 订阅消息: 指定消息名和订阅者回调函数
@@ -1819,7 +1821,7 @@ PubSub.publish("cancel", {
 
 
 
-# 手写Promise
+## 手写Promise
 
 - 定义整体结构
 - Promise构造函数的实现
@@ -1827,7 +1829,7 @@ PubSub.publish("cancel", {
 - Promise.resolve()/reject()的实现
 - Promise.all/race()的实现
 
-## ES5函数类
+### ES5函数类
 
 ```js
 function MyPromise(executor) {
@@ -2021,7 +2023,7 @@ MyPromise.race = function (promises) {
 
 
 
-## ES6类
+### ES6类
 
 ```js
 class MyPromise {
@@ -2203,7 +2205,7 @@ class MyPromise {
 
 
 
-# 数据类型判断
+## 数据类型判断
 
 - typeof 来判断数据类型无法精确判断对象类型，而且null会判断object
 - 可以使用 Object.prototype.toString 实现
@@ -2230,7 +2232,7 @@ console.log(typeOf(new Date())); // Date
 
 
 
-# ES5继承（寄生组合继承）
+## ES5继承（寄生组合继承）
 
 ```js
 function People(name) {
@@ -2264,11 +2266,11 @@ xiaoming.study(); // xiaoming is studying
 
 
 
-# 获取 url 参数
+## 获取 url 参数
 
 
 
-## URLSearchParams 方法
+### URLSearchParams 方法
 
 ```js
 // 创建一个URLSearchParams实例
@@ -2279,7 +2281,7 @@ const params = Object.fromEntries(urlSearchParams.entries());
 
 
 
-## split 方法
+### split 方法
 
 ```js
 function getParams(url) {
