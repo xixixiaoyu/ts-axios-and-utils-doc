@@ -26,7 +26,7 @@ import { truncate } from "yun-utils";
 console.log(truncate("hello", 3));
 
 // 使用commonjs引入
-const {reverseString} = require("yun-utils");
+const { reverseString } = require("yun-utils");
 console.log(reverseString("yunmu"));
 ```
 
